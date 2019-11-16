@@ -153,6 +153,14 @@
                         <password>sa</password>
                     </security>
                 </datasource>
+		<datasource jndi-name="java:jboss/datasources/GreeterQuickstartDS" pool-name="greeter-quickstart" enabled="${greeterdb-enabled:false}" use-java-context="true">
+					<connection-url>jdbc:h2:mem:${greeterdb:test2};DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
+					<driver>h2</driver>
+					<security>
+						<user-name>sa</user-name>
+						<password>sa</password>
+					</security>
+		</datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
