@@ -36,6 +36,14 @@
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
     </extensions>
+    <vault>
+        <vault-option name="KEYSTORE_URL" value="/home/ec2-user/vault/vault.keystore"/>
+        <vault-option name="KEYSTORE_PASSWORD" value="MASK-06i1X5MuDe2qqBaBoxWFgu"/>
+        <vault-option name="KEYSTORE_ALIAS" value="vault"/>
+        <vault-option name="SALT" value="1234abcd"/>
+        <vault-option name="ITERATION_COUNT" value="120"/>
+        <vault-option name="ENC_FILE_DIR" value="/home/ec2-user/vault/"/>
+    </vault>
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
@@ -153,14 +161,14 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-		<datasource jndi-name="java:jboss/datasources/GreeterQuickstartDS" pool-name="greeter-quickstart" enabled="${greeterdb-enabled:false}" use-java-context="true">
-					<connection-url>jdbc:h2:mem:${greeterdb:test2};DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
-					<driver>h2</driver>
-					<security>
-						<user-name>sa</user-name>
-						<password>sa</password>
-					</security>
-		</datasource>
+                <datasource jndi-name="java:jboss/datasources/GreeterQuickstartDS" pool-name="greeter-quickstart" enabled="${greeterdb-enabled:false}" use-java-context="true">
+                    <connection-url>jdbc:h2:mem:${greeterdb:test2};DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
+                    <driver>h2</driver>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
