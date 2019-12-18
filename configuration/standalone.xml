@@ -169,6 +169,14 @@
                         <password>sa</password>
                     </security>
                 </datasource>
+                <datasource jndi-name="java:jboss/datasources/MysqlDS" pool-name="mysql-quickstart" enabled="${mysqldb-enabled:false}" use-java-context="true">
+                    <connection-url>jdbc:mysql://${mysql_dbhostname:none}:${mysql_dbport:3306}/${mysql_dbname:none}</connection-url>
+                    <driver>mysql</driver>
+                    <security>
+                        <user-name>${mysql_dbusername:user}</user-name>
+                        <password>${mysql_dbhost_passwd:none}</password>
+                    </security>
+                </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
